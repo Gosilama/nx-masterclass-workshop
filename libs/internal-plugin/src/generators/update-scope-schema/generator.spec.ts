@@ -1,19 +1,19 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
 
-import { utilLibGenerator } from './generator';
-import { UtilLibGeneratorSchema } from './schema';
+import { updateScopeSchemaGenerator } from './generator';
+import { UpdateScopeSchemaGeneratorSchema } from './schema';
 
-describe('util-lib generator', () => {
+describe('update-scope-schema generator', () => {
   let tree: Tree;
-  const options: UtilLibGeneratorSchema = { name: 'test' };
+  const options: UpdateScopeSchemaGeneratorSchema = { name: 'test' };
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();
   });
 
   it('should run successfully', async () => {
-    await utilLibGenerator(tree, options);
+    await updateScopeSchemaGenerator(tree, options);
     const config = readProjectConfiguration(tree, 'test');
     expect(config).toBeDefined();
   });
